@@ -1,3 +1,6 @@
+var os = require('os');
+console.log('shit version ' + process.version + ' on a ' + os.type() + ' os');
+
 var http = require('http');
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});

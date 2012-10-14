@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/project_boilerplate/!svn/ver/44/trunk/defualt/scaffolding/standards
+END
+html_template.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/project_boilerplate/!svn/ver/38/trunk/defualt/scaffolding/standards/html_template.html
+END
+js_template.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/project_boilerplate/!svn/ver/44/trunk/defualt/scaffolding/standards/js_template.js
+END
+jquery_plugin_template.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/project_boilerplate/!svn/ver/38/trunk/defualt/scaffolding/standards/jquery_plugin_template.js
+END
