@@ -82,8 +82,8 @@
 	Util.createContext = function(p_id) {
 	    var canvas = document.createElement('canvas');
 		canvas.setAttribute("id", "element-canvas_"+p_id);
-		// $$_canvas.canvas().appendChild(canvas);
-		document.body.appendChild(canvas);
+		$$_canvas.canvas().appendChild(canvas);
+		//document.body.appendChild(canvas);
 		canvas.style.display = "none";
 	    canvas.width =  $$_canvas._canvas.width;
 	    canvas.height =  $$_canvas._canvas.height;

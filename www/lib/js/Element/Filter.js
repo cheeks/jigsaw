@@ -5,8 +5,8 @@
 		
 		EventTarget.call(this);
 		
-	}
-	
+	};
+
 
 	var _pt = Filter.prototype;
 	
@@ -23,7 +23,7 @@
 		p_src.context.putImageData(_img,0,0);
 		
 		return p_src.canvas;
-	}
+	};
 	
 	Filter.filterImage = function(p_filter, p_image, var_args, p_ref) {
 	  var args = [p_image];
@@ -380,6 +380,22 @@
 		return p_pixels;
 	};
 	
+	Filter.sepia = function(p_pixels){
+		//amount : {min:0.0, max:2.0} ranges
+		var data = p_pixels.data;
+
+		for(var i = 0; i < data.length; i+=4){
+			var r = data[i],
+				g = data[i+1],
+				b = data[i+2];
+			data[i] = (r * .393) + (g *.769) + (b * .189)
+			data[i+1] = (r * .349) + (g *.686) + (b * .168)
+			data[i+2] = (r * .272) + (g *.534) + (b * .131)
+		}
+		
+		return p_pixels;
+	};
+	
 	Filter.dither = function(p_pixels,p_value){
 		var width = p_pixels.width, height = p_pixels.height;
 	  	var inputData = p_pixels.data;
@@ -697,6 +713,9 @@
 	// =====================
 	// = private functions =
 	// =====================
+	
+
+	
 	Filter.multiplyPixels = function(p_topValue, p_bottomValue) {
 	    // the multiply formula
 	    return p_topValue * p_bottomValue / 255;

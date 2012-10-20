@@ -47,7 +47,7 @@ class Config {
 		
 		
 		switch($this->server_name) {
-			case "boiler.evb.com":
+			case "jigsaw.biz":
 				
 				$this->environment = LOCAL;
 				$this->dbhost = 'localhost';
@@ -62,6 +62,7 @@ class Config {
 				
 			break;
 			
+			//when we have a dev environment ?MAYBE?
 			case "production_url.com":
 				//turn off error reporting for production
 				error_reporting(0);

@@ -1,5 +1,5 @@
 
-/*! Tweenie class */
+
 (function(window){
 	
 	function Tweenie () {
@@ -156,7 +156,7 @@
 		return p_e;
 
 	};
-
+	
 	//
 
 	Easing.Quadratic.EaseIn = function ( p_e ) {
@@ -179,7 +179,8 @@
 	};
 
 
-
+	
+	
 	Easing.Cubic.EaseIn = function ( p_e ) {
 
 		return p_e * p_e * p_e;
@@ -221,7 +222,9 @@
 	};
 
 	//
-
+	
+	
+	
 	Easing.Quintic.EaseIn = function ( p_e ) {
 
 		return p_e * p_e * p_e * p_e * p_e;
@@ -242,7 +245,7 @@
 	};
 
 	// 
-
+	
 	Easing.Sinusoidal.EaseIn = function ( p_e ) {
 
 		return - Math.cos( p_e * Math.PI / 2 ) + 1;
@@ -262,6 +265,7 @@
 	};
 
 	//
+	
 
 	Easing.Exponential.EaseIn = function ( p_e ) {
 
@@ -285,7 +289,7 @@
 	};
 
 	// 
-
+	
 	Easing.Circular.EaseIn = function ( p_e ) {
 
 		return - ( Math.sqrt( 1 - p_e * p_e ) - 1);
@@ -306,7 +310,6 @@
 	};
 
 	//
-
 	Easing.Elastic.EaseIn = function( p_e ) {
 
 		var s, a = 0.1, p = 0.4;
@@ -339,7 +342,7 @@
 	};
 
 	//
-
+	
 	Easing.Back.EaseIn = function( p_e ) {
 
 		var s = 1.70158;
@@ -363,6 +366,7 @@
 	};
 
 	// 
+
 
 	Easing.Bounce.EaseIn = function( p_e ) {
 

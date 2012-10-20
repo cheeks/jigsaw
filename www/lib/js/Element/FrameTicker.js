@@ -1,5 +1,5 @@
 
-/*! FrameTicker class */
+
 (function(window){
 	
 	FrameTicker = function() {
