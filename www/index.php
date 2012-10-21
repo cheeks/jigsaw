@@ -89,8 +89,8 @@
 
 <script type="text/javascript" charset="utf-8">
 	var _thangs = [],
-		stuff,
-		fit = false;
+		stuff;
+
 	for (var i=1; i<=25; i++) {
 		stuff = new Element("Bitmap", {
 			src:    'media/images/puzzles/' + i + '.jpg',
@@ -102,6 +102,9 @@
 
 	}
 
+	_thangs[0].collides(_thangs[1], function() {
+		console.log('0 collided into 1');
+	})
 	// var zelda = new Element("Sprite", {
 		
 	// 	src :        "zelda.png,zelda.json",
@@ -116,36 +119,29 @@
 	function drag_handler (p_evt) {
 		if (p_evt.eventType === "onFinished") {
 			this.border("none").shadow("none");
-			checkForFits(20);
+			checkForFits(_thangs[0], _thangs[1], 20, function() {
+				_thangs[1].x(_thangs[0].x() + 100);
+				_thangs[1].y(_thangs[0].y());
+
+			});
 		}	
 		if (p_evt.eventType == "onStart") {
-			if (fit == true) { 
-				console.log('but it fits');
-			}
 		}
 	}
 
-	function checkForFits(sensitivity) {
-		// for (var i=1; i<=25; i++) {
-			if (
-				(
-					(_thangs[1].x() > (_thangs[0].x() + (100 - sensitivity))) && 
-					(_thangs[1].x() < (_thangs[0].x() + (100 + sensitivity)))
-				) && 
-				(
-					(_thangs[1].y() < (_thangs[0].y() + sensitivity)) && 
-					(_thangs[1].y() > (_thangs[0].y() - sensitivity))
-				)
-			) {
-				_thangs[1].x(_thangs[0].x() + 100);
-				_thangs[1].y(_thangs[0].y());
-				fit = true;
-				console.log('woop');
-			} else {
-				fit = false;
-			}
-		// }
+	function checkForFits(a, b, sensitivity, callback) {
+		var fit = b.x() > a.x() + a.width() - sensitivity && 
+		          b.x() < a.x() + a.width() + sensitivity && 
+		          b.y() < a.y() + sensitivity && 
+		          b.y() > a.y() - sensitivity;
+
+		if (fit) {
+			callback();
+		} else {
+
+		}
 	}
+
 		
 </script>
 
