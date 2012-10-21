@@ -24,9 +24,9 @@
 		</header>
 
 		<div id="MainContent" role="main">
-			  <div role="main">
-	<canvas id="element-root" framerate="100"  width="800" height="600">No support for canvas was detected, human.</canvas>
-  </div>
+			<div role="main">
+				<canvas id="element-root" framerate="100"  width="800" height="600">No support for canvas was detected, human.</canvas>
+			</div>
 
 		</div>
 
@@ -91,10 +91,13 @@
 	var _thangs = [],
 		stuff;
 	for (var i=1; i<25; i++) {
-		stuff = _img1 = new Element("Bitmap", {
+		stuff = new Element("Bitmap", {
 			src:    'media/images/puzzles/' + i + '.jpg',
-			drag:   drag_handler
+			drag:   drag_handler,
+			x:      Math.random()*700,
+			y:      Math.random()*500
 		});
+		_thangs.push(stuff);
 	}
 
 	// var zelda = new Element("Sprite", {
@@ -109,16 +112,13 @@
 	// });
 
 	function drag_handler (p_evt) {
-
+		if (p_evt.eventType === "onFinished") {
 			
-			if(p_evt.eventType === "onFinished"){
-				
-				this.border("none").shadow("none");
-			}
+			this.border("none").shadow("none");
+		}	
+		if (p_evt.eventType == "onStart") {
 			
-			if (p_evt.eventType == "onStart") {
-				
-			}
+		}
 	}
 		
 </script>
