@@ -116,7 +116,7 @@
 	function drag_handler (p_evt) {
 		if (p_evt.eventType === "onFinished") {
 			this.border("none").shadow("none");
-			checkForFits();
+			checkForFits(20);
 		}	
 		if (p_evt.eventType == "onStart") {
 			if (fit == true) { 
@@ -125,16 +125,16 @@
 		}
 	}
 
-	function checkForFits() {
+	function checkForFits(sensitivity) {
 		// for (var i=1; i<=25; i++) {
 			if (
 				(
-					(_thangs[1].x() > (_thangs[0].x() +  80)) && 
-					(_thangs[1].x() < (_thangs[0].x() + 120))
+					(_thangs[1].x() > (_thangs[0].x() + (100 - sensitivity))) && 
+					(_thangs[1].x() < (_thangs[0].x() + (100 + sensitivity)))
 				) && 
 				(
-					(_thangs[1].y() < (_thangs[0].y() + 20)) && 
-					(_thangs[1].y() > (_thangs[0].y() - 20))
+					(_thangs[1].y() < (_thangs[0].y() + sensitivity)) && 
+					(_thangs[1].y() > (_thangs[0].y() - sensitivity))
 				)
 			) {
 				_thangs[1].x(_thangs[0].x() + 100);
