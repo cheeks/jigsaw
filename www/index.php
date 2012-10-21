@@ -89,15 +89,17 @@
 
 <script type="text/javascript" charset="utf-8">
 	var _thangs = [],
-		stuff;
-	for (var i=1; i<25; i++) {
+		stuff,
+		fit = false;
+	for (var i=1; i<=25; i++) {
 		stuff = new Element("Bitmap", {
 			src:    'media/images/puzzles/' + i + '.jpg',
 			drag:   drag_handler,
-			x:      Math.random()*700,
-			y:      Math.random()*500
+			x:      Math.floor(Math.random()*700),
+			y:      Math.floor(Math.random()*500)
 		});
 		_thangs.push(stuff);
+
 	}
 
 	// var zelda = new Element("Sprite", {
@@ -113,12 +115,36 @@
 
 	function drag_handler (p_evt) {
 		if (p_evt.eventType === "onFinished") {
-			
 			this.border("none").shadow("none");
+			checkForFits();
 		}	
 		if (p_evt.eventType == "onStart") {
-			
+			if (fit == true) { 
+				console.log('but it fits');
+			}
 		}
+	}
+
+	function checkForFits() {
+		// for (var i=1; i<=25; i++) {
+			if (
+				(
+					(_thangs[1].x() > (_thangs[0].x() +  80)) && 
+					(_thangs[1].x() < (_thangs[0].x() + 120))
+				) && 
+				(
+					(_thangs[1].y() < (_thangs[0].y() + 20)) && 
+					(_thangs[1].y() > (_thangs[0].y() - 20))
+				)
+			) {
+				_thangs[1].x(_thangs[0].x() + 100);
+				_thangs[1].y(_thangs[0].y());
+				fit = true;
+				console.log('woop');
+			} else {
+				fit = false;
+			}
+		// }
 	}
 		
 </script>
