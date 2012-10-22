@@ -63,49 +63,45 @@ cool.puzzle_builder = function(){
 
 	function drag_handler (p_evt) {
 		if (p_evt.eventType === "onFinished") {
-			this.border("none").shadow("none");
-			_setupSnaps();
+			_setupSnaps(20);
 		}	
 		if (p_evt.eventType == "onStart") {
 		}
 	}
 
-	function _setupSnaps() {
+	function _setupSnaps(setSensitivity) {
+		_sensitivity = setSensitivity;
 		// snaps for x
 		for (var i=0; i<_totalPieces-1; i++) {
 			if (i % 5 != 4) {
-				_checkForFitsX(_thangs[i], _thangs[i+1], 20);
+				_checkForFitsX(_thangs[i], _thangs[i+1]);
 			}
 		}
 		// snaps for y
 		for (var i=0; i<_totalPieces; i++) {
 			if (i < (_totalPieces - _cols)) {
-				_checkForFitsY(_thangs[i], _thangs[i+_rows], 20);
+				_checkForFitsY(_thangs[i], _thangs[i+_rows]);
 			}
 		}
 	}
 
 
-	function _checkForFitsX(a, b, sensitivity) {
-		var fitX = b.x() > a.x() + a.width() - sensitivity && 
-		           b.x() < a.x() + a.width() + sensitivity && 
-		           b.y() < a.y() + sensitivity && 
-		           b.y() > a.y() - sensitivity;
+	function _checkForFitsX(a, b) {
+		var fitX = b.x() > a.x() + a.width() - _sensitivity && 
+		           b.x() < a.x() + a.width() + _sensitivity && 
+		           b.y() < a.y() + _sensitivity && 
+		           b.y() > a.y() - _sensitivity;
 
-		if (fitX) {
-			_snapTo(a, b, 'x');
-		}
+		if (fitX) _snapTo(a, b, 'x');
 	}
 
-	function _checkForFitsY(a, b, sensitivity) {
-		var fitY = b.y() > a.y() + a.height() - sensitivity && 
-		           b.y() < a.y() + a.height() + sensitivity && 
-		           b.x() < a.x() + sensitivity && 
-		           b.x() > a.x() - sensitivity;
+	function _checkForFitsY(a, b) {
+		var fitY = b.y() > a.y() + a.height() - _sensitivity && 
+		           b.y() < a.y() + a.height() + _sensitivity && 
+		           b.x() < a.x() + _sensitivity && 
+		           b.x() > a.x() - _sensitivity;
 
-		if (fitY) {
-			_snapTo(a, b, 'y');
-		}
+		if (fitY) _snapTo(a, b, 'y');
 	}
 	
 	function _snapTo(a, b, orientation) {
