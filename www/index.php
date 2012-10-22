@@ -67,6 +67,7 @@
 	<script src="lib/js/master.js" type="text/javascript" charset="utf-8"></script>	
 	<script src="lib/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script src="lib/js/homePage.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/js/puzzle_builder.js" type="text/javascript" charset="utf-8"></script>
 
 
 <script src="lib/js/Element/Basic.js" type="text/javascript" charset="utf-8"></script>
@@ -86,64 +87,6 @@
 <script src="lib/js/Element/canvas.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/js/Element/element.js" type="text/javascript" charset="utf-8"></script>
 
-
-<script type="text/javascript" charset="utf-8">
-	var _thangs = [],
-		stuff;
-
-	for (var i=1; i<=25; i++) {
-		stuff = new Element("Bitmap", {
-			src:    'media/images/puzzles/' + i + '.jpg',
-			drag:   drag_handler,
-			x:      Math.floor(Math.random()*700),
-			y:      Math.floor(Math.random()*500)
-		});
-		_thangs.push(stuff);
-
-	}
-
-	_thangs[0].collides(_thangs[1], function() {
-		console.log('0 collided into 1');
-	})
-	// var zelda = new Element("Sprite", {
-		
-	// 	src :        "zelda.png,zelda.json",
-	// 	padding:     2,
-	// 	gotoAndStop: 15,
-	// 	filter:      "grayscale,multiply:#ff0000",
-	// 	sequence:    "default:14:25,sword:0:14",
-	// 	x:           22,
-	// 	y:           22
-	// });
-
-	function drag_handler (p_evt) {
-		if (p_evt.eventType === "onFinished") {
-			this.border("none").shadow("none");
-			checkForFits(_thangs[0], _thangs[1], 20, function() {
-				_thangs[1].x(_thangs[0].x() + 100);
-				_thangs[1].y(_thangs[0].y());
-
-			});
-		}	
-		if (p_evt.eventType == "onStart") {
-		}
-	}
-
-	function checkForFits(a, b, sensitivity, callback) {
-		var fit = b.x() > a.x() + a.width() - sensitivity && 
-		          b.x() < a.x() + a.width() + sensitivity && 
-		          b.y() < a.y() + sensitivity && 
-		          b.y() > a.y() - sensitivity;
-
-		if (fit) {
-			callback();
-		} else {
-
-		}
-	}
-
-		
-</script>
 
 
 	<!-- END: javascript -->

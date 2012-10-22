@@ -1,8 +1,8 @@
 /*! main class
  * @depends jquery/jquery-1.8.0.min.js
  */
-var CHANGE_ME  = CHANGE_ME || {};
-CHANGE_ME.main = function(){
+var cool  = cool || {};
+cool.main = function(){
 	// =================================================
 	// = Private variables (example: var _foo = bar; ) =
 	// =================================================
@@ -81,7 +81,7 @@ window.debug=(function(){var i=this,b=Array.prototype.slice,d=i.console,h={},f,g
 
 $(document).ready(function() {
 	
- CHANGE_ME.main.init();
+ cool.main.init();
 
 });
 

@@ -2,8 +2,8 @@
  * Put javascript plugin depedencies below (see main.js for an exmaple)
  * 
  */
-var CHANGE_ME = CHANGE_ME || {};
-CHANGE_ME.homePage = function(){
+var cool = cool || {};
+cool.homePage = function(){
 	// =================================================
 	// = Private variables (example: var _foo = bar; ) =
 	// =================================================
@@ -38,6 +38,6 @@ CHANGE_ME.homePage = function(){
 	// ================================================
 	
 }();
-CHANGE_ME.main.queue(CHANGE_ME.homePage.init);
+cool.main.queue(cool.homePage.init);
 
 
