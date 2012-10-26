@@ -19,7 +19,7 @@
 	// = public functions =
 	// ====================
 	_pt.x = function(p_val){
-		if(p_val){
+		if(p_val != null){
 			this._x = p_val;
 			return this;
 		}else{
@@ -27,7 +27,7 @@
 		}
 	};
 	_pt.y = function(p_val){
-		if(p_val){
+		if(p_val != null){
 			this._y = p_val;
 			return this;
 		}else{
@@ -50,18 +50,7 @@
 			return this._height;
 		}
 	};
-	_pt.trace = function(p_val){
-		
-		if(p_val === false) this._cleartrace();
-		
-		if(p_val != null){
-			this._trace = p_val;
-			return this;
-		}else{
-			return this._trace ||  false;
-		}
-		
-	};
+	
 	_pt.scale = function(p_val){
 		if(p_val != null){
 			this._scale = p_val;
@@ -104,13 +93,15 @@
 		         a.y() < b.y() + b.height() &&
 		         a.y() + a.height() > b.y();
 		if(_collide)p_callback.call(this);
-	}
+	};
 	
 	_pt.resetFilter = function(){
 		this.filter_cache = null;
-	}
+	};
 	
-	
+	_pt.drag = function(p_func){
+		return this.on('drag',p_func);
+	};
 
 	// =====================
 	// = private functions =

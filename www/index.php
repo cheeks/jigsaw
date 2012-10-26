@@ -19,12 +19,15 @@
 	<div id="PageWrapper">
 		<header>
 			<h1>
-				<a href="#">CHANGE_ME</a> 
+				puzzle test
 			</h1>
 		</header>
 
 		<div id="MainContent" role="main">
-			
+			<div role="main">
+				<canvas id="element-root" framerate="100"  width="800" height="600">No support for canvas was detected, human.</canvas>
+			</div>
+
 		</div>
 
 		<footer>
@@ -64,6 +67,63 @@
 	<script src="lib/js/master.js" type="text/javascript" charset="utf-8"></script>	
 	<script src="lib/js/main.js" type="text/javascript" charset="utf-8"></script>
 	<script src="lib/js/homePage.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script src="lib/js/Element/Basic.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/util.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/EventTarget.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/Animate.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/Filter.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/DisplayObject.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/Loop.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/Transform.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/Events.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/types/Bitmap.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/types/Path.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/types/Sprite.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/FrameTicker.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/Tweenie.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/canvas.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/js/Element/element.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script type="text/javascript" charset="utf-8">
+	var _thangs = [],
+		stuff;
+	for (var i=1; i<25; i++) {
+		stuff = new Element("Bitmap", {
+			src:    'media/images/puzzles/' + i + '.jpg',
+			drag:   drag_handler,
+			x:      Math.random()*700,
+			y:      Math.random()*500
+		});
+		_thangs.push(stuff);
+	}
+
+	// var zelda = new Element("Sprite", {
+		
+	// 	src :        "zelda.png,zelda.json",
+	// 	padding:     2,
+	// 	gotoAndStop: 15,
+	// 	filter:      "grayscale,multiply:#ff0000",
+	// 	sequence:    "default:14:25,sword:0:14",
+	// 	x:           22,
+	// 	y:           22
+	// });
+
+	function drag_handler (p_evt) {
+		if (p_evt.eventType === "onFinished") {
+			
+			this.border("none").shadow("none");
+		}	
+		if (p_evt.eventType == "onStart") {
+			
+		}
+	}
+		
+</script>
+
+
 	<!-- END: javascript -->
 	<?	
 	} 
