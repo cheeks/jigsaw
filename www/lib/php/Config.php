@@ -61,6 +61,21 @@ class Config {
 				$this->facebook_app_id = "";
 				
 			break;
+
+			case "localhost":
+				
+				$this->environment = LOCAL;
+				$this->dbhost = 'localhost';
+				$this->dbuser = "root";
+				$this->dbpass = "root";
+				$this->dbname = "test";
+				$this->cdn_path = "/";
+				$this->base_url = "/";
+				$this->use_min = FALSE;
+				$this->debug = FALSE;
+				$this->facebook_app_id = "";
+				
+			break;
 			
 			//when we have a dev environment ?MAYBE?
 			case "production_url.com":
