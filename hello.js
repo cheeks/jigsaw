@@ -7,3 +7,7 @@ http.createServer(function (req, res) {
   res.end('Hellooo World\n');
 }).listen(1337, '127.0.0.1');
 console.log('Server running at http://127.0.0.1:1337/');
+
+setTimeout(function() { console.log('World!');
+ }, 2000);
+ console.log('Hello');
